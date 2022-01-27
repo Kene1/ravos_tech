@@ -1,0 +1,301 @@
+<?php
+    
+    if(isset($_POST['email']) && $_POST['email'] !='') {
+        
+        if(filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) ) {
+            //submit the form
+        
+            $surname = $_POST['surname'];
+            $firstname = $_POST['firstname'];
+            $mailFrom = $_POST['email'];
+            //$course = $_POST['course'];
+            $message = $_POST['message'];
+
+
+            $mailTo = "thobegak@gmail.com";
+            //$subject = "Just asking";
+            $body = "";
+
+            $body .= "From: ".$firstname. "\r\n";
+            $body .= "From: ".$surname. "\r\n";
+            $body .= "Email: ".$mailFrom. "\r\n";
+            $body .= "Message: ".$message. "\r\n";
+                     
+            mail($mailTo, $message, $body);
+
+            $message_sent = TRUE;
+            
+        }
+        else {
+            $invalid_class_name = "form-invalid";
+        }
+    }
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+ 
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,
+          height=device-height">
+        <meta name="description" content="Technical college situated in Kanye offering certificate
+          and diploma courses from a range of different disciplines">  
+        <meta name="keywords" content="vocational school, ramatea, ravos, technical school">
+
+        <title>Contact Us</title>
+        <link rel="stylesheet" href="styles/newStyles.css" type="text/css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+
+        <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
+        
+        <style>
+            .form {
+                width: 75%;
+                padding: 50px;
+                margin: 0 auto;
+                line-height: 1.5em;
+                
+            }
+            fieldset {
+                padding: 20px;
+            }
+            .findUs {
+                margin: 0 auto;
+                padding: 50px;
+            }
+            #googleMap {
+                margin-bottom: 40px;
+                padding: 20px;
+            }
+                
+        </style>
+    </head>
+    
+    <body>
+        <div class="container">
+            <header>
+                <div id="navigation">
+                    <input type="checkbox" id="toggle" />
+                    <label for="toggle" class="show-menu" >&#9776;</label>
+                    <label for="toggle" class="hide-menu" >&Cross;</label>
+                    <div class="menu">
+                        <ul>
+                            <li><a href="index.html" target="_blank"><i class="fa fa-home"> </i> Home</a> </li> 
+                            <li><a href="about.html" target="_blank"><i class="fa fa-user"></i> About Us </a></li> 
+                            <li><a href="contact.php" class="active" target="_blank"><i class="fa fa-phone"></i> Contact Us </a></li> 
+                            <li><a href="courses.html" target="_blank"><i class="fa fa-align-center"></i> Courses</a> </li>
+                            <li><a href="activities.html" target="_blank"><i class="fa fa-clone"></i> Activities </a></li> 
+                            <li><a href="gallery.html" target="_blank"><i class="fa fa-photo"></i> Gallery </a></li> 
+                            <li><a href="library.html" target="_blank"><i class="fa fa-book"></i> Library </a></li>
+                            <li><div class="dropdown">
+                                <a class="dropbtn"><i class="fa fa-users"></i> Students <i class="fa fa-caret-down"></i> </a>
+                                <div class="dropdown-content">
+                                    <a href="admin.html" target="_blank">General Admissions Information</a>
+                                    <a href="rules.html" target="_blank">Rules and Regulations</a> 
+                                    <a href="internation.html" target="_blank">International Students</a> 
+                                    <a href="student_life.html" target="_blank">Student life</a>  
+                                </div>    
+                            </div> 
+                        </ul>
+                    </div>
+                </div>   
+
+                  <!--This section is for the call-to-action buttons-->
+                  <div class="button-wrapper">
+                    <a class="button cta-button" href="apply.html">APPLY NOW</a>
+                    <a class="button cta-button" href="Downloads/">DOWNLOADS</a>
+                </div>
+
+            </header>
+            
+            <div class="main">
+                <div class="jumbotron">
+                    <img src="images/logo.jpg" class="logo" alt="school logo"   >
+                    <h1>RAVOS Technical College </h1>
+                    <div class="innov">
+                        <div class="trade">
+                            <span>TRADE TRAINING...</span>
+                        </div>
+                        <div class="trade">
+                            <span>...THROUGH PRODUCTION</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact">
+                    <?php
+                        if(message_sent);
+                    ?>
+                    <h4>Your message has been sent</h4>
+
+                    <!--?php
+                        else;
+                    ?-->
+
+                    <h3 class="headings">Get in touch with us</h3><br>
+                    <div class="form">
+                        <form method="POST" action="contact.php" id="contact-form" enctype="text/plain">
+                            <fieldset>
+                                <legend>Enquire</legend>
+                                
+                                Surname:  <input type="text" name="surname" id="surname" size="20" required> <br><br>
+                                First Name:  <input  type="text" name="firstname" id="firstname" size="20" required><br><br>
+                                E-mail:&nbsp; <input <?= $invalid_class_name ?? "" ?> type="email" name="email" required><br><br>    
+                                
+                                <p><input type="checkbox" name="terms" id="terms" />&nbsp;
+                                I have read the terms and conditions</p><br><br>
+                 
+                                <p>Preferred Programme of study</p><br>
+                        <select name="course" id="course"><br>
+                            <option>Occupational Health and Safety Management</option>
+                            <option>Early Childhood Education-Full time</option>
+                            <option>Early Childhood Education-Distance</option>
+                            <option>Refrigeration & Air-Conditioning</option>
+                            <option>Business Management</option>
+                            <option>Dressmaking/Fashion Design</option>
+                            <option>Hairdressing and Beauty Therapy</option>
+                            <option>Livestock Farming</option>
+                        </select><br><br>
+                                      
+                                <p>What is your question?</p><br>
+                                <p><textarea name="message" rows="7"  cols="40" id="message" ></textarea> </p><br><br>
+                                <p><input type="submit" style="border: 1px solid black; padding: 5px 2px; cursor: pointer; color: white; background-color: blue;" name="Send your request"></p>
+                            </fieldset>
+                        </form><br>
+                
+                    </div><br><br><!--Close form-->
+                    <!--?php
+                        endif;
+                    ?-->
+                    <article>
+                        <address>
+                            <h3> Alternatively you can contact us at </h3><br>
+                            <p>Tel: <a href="tel:+2675403361">+267 540 3361</a></p><br>
+                            <p>Cell: <a href="tel:+26775809971">+267 75 809 971</a></p><br>
+                            <p>Fax: <a href="fax:+267544175">+267 544 175</a> </p><br>
+                            <p>E-mail us at one of the following addresses</p><br>
+                            <p>Admin: <a href="mailto:admin@ravos.co.bw">admin@ravos.co.bw </a> </p><br>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="mailto:ravostech@gmail.com">ravostech@gmail.com </a></p><br>
+                            <p>Registra: <a href="mailto:registra@ravos.co.bw">registra@ravos.co.bw</a></p><br>
+                            <p>Accounts: <a href="mailto:accounts@ravos.co.bw">accounts@ravos.co.bw</a></p><br>
+                            <p>Student Affairs: <a href="mailto:student.affairs@ravos.co.bw">student.affairs@ravos.co.bw</a></p><br>
+                            <p>Postal Address: P O Box 10375, Kanye </p><br>
+                        </address>
+                    </article><br>
+                </div>    
+
+                <div class="findUs">
+                    <h3>Our location:</h3>
+                    <div id="googleMap" style="width:100%; height:400px;">
+                        <p>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2675.1425245704395!2d25.356708192129712!3d-24.962912276219164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ea35fcf177854df%3A0x846c38ae1a937a25!2sRAVOS%20Technical%20College!5e1!3m2!1sen!2sbw!4v1583995687664!5m2!1sen!2sbw" width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="endorse">
+                    <h3>Proudly endorsed by:</h3><br>
+                    <div class="sponsors">
+                        <img src="images/bqa logo.jpg" width="100px" height="100px">
+                        
+                        
+                    </div>
+
+                </div>
+                
+            </div>
+   
+        </div>
+
+        <footer id="footer">
+            <div class="main-footer">
+                <div class="left box">
+                    <h3>About Us</h3>
+                    <hr>
+                    <div class="footContent">
+                        <p>RAVOS Technical College is a Trust located in Kanye, established in 1986
+                            and registered with the Ministry of Education and Skills Development 
+                            as a private vocational school in January 1990. 
+                        <br>
+                        At RAVOS Tech we are a value driven community. Our values ensure that
+                            our day to day lives are manageable and make us produce better results.
+                        </p>
+                        <div class="social">
+                            <a href="www.facebook.com/RavosTechnicalCollege"><span class="fa fa-facebook-f"></span> </a>
+                            <a href="#"><span class="fa fa-twitter"></span> </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="center box">
+                    <h3>Address</h3>
+                    <hr>
+                    <div class="footContent">
+                        <div class="place">
+                            <span class="fa fa-map-marker"></span> P O Box 10375, Kanye
+                        </div>
+                        <div class="phone">
+                            <span class="fa fa-phone"></span>
+                            <a href="+2675403361">+267 540 3361</a>, <a href="+26775809971">+267 758 09 971</a>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href=" +26774132016"> +267 74 132 016</a>
+                        </div>
+                        <div class="fax">
+                            <span class="fa fa-fax"></span>&nbsp;<a href="fax:+2675441752">+267 544 1752</a>
+                        </div>
+                        <div class="email">
+                            <span class="fa fa-envelope"></span>&nbsp;<a href="mailto:admin@ravos.co.bw " style="color: white;">ravostech@gmail.com</a>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="right box">
+                    <h3>Contact Us</h3>
+                    <hr>
+                    <div class="footContent">
+                        <form action="contact_form_process.php">
+                            <div class="email">
+                                Email * &nbsp;&nbsp;&nbsp;
+                                <input type="email" required>
+                            </div><br>
+                            <div class="msg">
+                                Message *
+                                <textarea rows="2" cols="25" required></textarea>
+                            </div><br>
+                            <div class="btn">
+                                <button type="submit" style="padding: 2px 5px; background-color: green; color: white; cursor: pointer;">Send</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div><br>
+            <hr><br>
+            <p style="color: white; text-align: center;">&copy; 
+                Copyright <script>document.write(new Date().getFullYear()); </script>
+                 RAVOS Technical College. All rights reserved.<em> Designed by Thanolo Web Consult</em>
+            </p><br><br>
+        </footer>
+        
+        <!--script type="text/javascript">
+           
+                function myMap() {
+                // body...
+                            var mapProp= {
+                                center:new google.maps.LatLng(-24.9628277,25.3580375),
+                                zoom:5,
+                            };
+                            var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+                        }
+        </script>
+         <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=myMap">
+         </script-->
+         
+
+
+    </body>
+</html>

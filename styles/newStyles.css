@@ -1,0 +1,1027 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    /*overflow: auto;*/
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f1f1f1;
+}
+.container {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding: 0 20px 20px 0;
+}
+
+/**********************/
+/*header styles*/
+
+header {
+    background-color: grey;
+    text-align: left;
+    padding: 20px;
+    position: fixed;
+    z-index: 111;
+    width: 100%;
+    margin: auto;
+    height: 80px;
+    line-height: 1.6em;
+}
+header ul {
+    display: flex;
+    justify-content: left;
+}
+header li {
+    list-style-type: none;
+    /*padding: 5px 10px;
+    display: inline-flex;*/
+    
+}
+#navigation {
+    
+    font-family: Arial, Helvetica, sans-serif;
+    width: fit-content;
+    
+}
+.menu {
+    margin: 10px 20px 0 0;
+    line-height: 30px;
+    padding: 0 20px;
+    text-align: left;
+}
+/*trying out cross*/
+.show-menu, .hide-menu {
+    transition: 0.4s;
+    
+    cursor: pointer;
+    display: none;
+}
+.show-menu {
+    float: right;
+}
+.hide-menu:hover, .show-menu:hover {
+    color: white;
+}
+
+/*****/
+label {
+    margin: 0 20px 0 0;
+	font-size: 26px;
+	display: none;
+}
+
+#toggle {
+    display: none;
+    z-index: -1111;
+}
+
+#navigation a {
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px;
+}
+#navigation li a:link {
+    color: blue;
+    
+}
+#navigation li a:hover {
+    color: white;
+}
+
+#navigation a:visited {
+    color: purple;
+}
+
+/*#navigation li a:active {
+    color: darkgreen;
+    background-color: yellow;
+}*/
+
+.active {
+    background-color: green;
+    /*color: white;*/
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 0 4px;
+}
+
+/*These are the styles for students link dropdown menu*/
+.dropbtn {  /*links inside students link*/
+    background-color: none;
+    color: blue;
+    padding: 10px;
+    border: none;
+}
+
+/*dropdown container*/
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+/*dropdown content hidden by default*/
+.dropdown-content {
+    display: none;
+    position: relative;
+    /*background-color: blueviolet;*/
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+/*links inside the dropdown*/
+.dropdown-content a {
+    float: none;
+    background-color: grey;
+    color: black; 
+    padding: 5px;
+    /*padding: 12px 16px;*/
+    text-decoration: none;
+    display: block;
+    
+}
+
+/*add a wheat color to dropdown links on hover*/
+.dropdown-content a:hover {
+    color: blanchedalmond;
+}
+
+/*show the dropdown menu on hover*/
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/*Styles for the call to action buttons*/
+.button-wrapper {
+    display: block;
+    transform: rotate(270deg);
+    right: -90px;
+    padding-top: 5px;
+    position: absolute;
+    top: 200px;
+}
+
+.button {
+    border: none;
+    border-radius: 3em;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+    display: inline-block;
+    font-size: 1em;
+    padding: 0.8em 1em;
+    width: auto;
+}
+
+.cta-button {
+    background-color: red;
+    color: #fff !important;
+    text-decoration: none;
+}
+
+.cta-button:hover {
+    background-color: darkseagreen;
+    color: black;
+    background-attachment: fixed;
+}
+
+/**************************************************************/
+/*styles for main*/
+.main {
+    overflow: auto;
+    width: 100%;
+    margin: 20px auto 0;
+    /*min-height: 1000px;
+    /*display: flex;
+    flex-direction: column;*/
+    padding: 100px 0 230px 0;
+}
+
+.jumbotron {
+    background-image: linear-gradient(left, white, rgb(189, 238, 189), green);
+    background-image: -webkit-linear-gradient(left, white, rgb(189, 238, 189), green);
+    background-image: -moz-linear-gradient(left, white, rgb(189, 238, 189), green);
+    background-image: -o-linear-gradient(left, white, rgb(189, 238, 189), green);
+    width: 100%;
+    height: 150px;
+    background-size: cover;              
+    padding: -20px 0 50px;
+    margin: auto;
+    
+}
+
+.jumbotron h1 {
+    color: green;
+    padding: 20px 150px 20px 180px;
+    margin-left: 20px;
+    font-weight: bold;
+    /*text-align: center;*/
+    text-shadow: darkcyan;
+}
+
+.logo {
+    float: left;
+    padding-left: 10px;
+    width: 180px;
+    height: 150px;
+}
+.innov {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+.innov .trade {
+    width: 200px;
+    height: 40px;
+    
+    font-size: 1em;
+    font-family: sans-serif;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 10px;
+}
+.innov .trade:first-child {
+    background-color: lawngreen;
+    color: darkgreen;
+}
+.innov .trade:last-child {
+    background-color: lightgreen;
+    color: antiquewhite;
+}
+.innov .trade span {
+    position: relative;
+    animation: marquee 5s linear infinite;
+}
+.innov .trade:first-child span {
+    animation-delay: 2.5s;
+    left: -100%;
+}
+@keyframes marquee {
+    from {left: 100%;
+    }
+    to {
+        left: -100%;
+    }
+}
+@-webkit-keyframes marquee {
+    from {left: 100%;
+    }
+    to {
+        left: -100%;
+    }
+}
+
+/*styles for slider, images will slide across the 
+page indefinitely*/
+
+.slidercontainer {
+    max-width: 800px;
+    display: block;
+    margin: 0 auto;
+    padding: 30px 0;
+}
+
+
+.showSlide {
+    display: none;
+    
+}
+
+.showSlide img {
+    width: 100%;
+    vertical-align: middle;
+    height: 400px;
+    
+}
+
+/*styling for content-layout---index page*/
+.content-layout {
+    max-width: 1300px;
+    padding: 20px 100px 0;
+    background-color: rgba(255, 255, 255, 0.863);
+    margin: 40px auto;
+    line-height: 1.65;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+.content-layout div {
+    margin: 50px 0;
+    border: transparent;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px grey;
+}
+.column {
+    padding: 20px;
+    margin-bottom: 20px;
+    flex: 1;
+    margin-right: 20px;
+}
+
+.content-layout .column:last-child p {
+    line-height: 2em;
+}
+.column:last-child {
+    margin-right: 0;
+}
+
+.column:nth-child(1) {background-color: aqua;}
+.column:nth-child(2) {
+    background-image: url('../images/grad11.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+    height: 800px;
+    color: white;
+    font-size: 2em;
+    text-align: center;
+}
+.column:nth-child(3) {background-color: blueviolet;}
+
+.programme {
+    background-image: url('../images/school-premises.jpg');
+    background-size: cover;
+
+}
+.programme p {
+    color: darkgreen;
+    text-shadow: 1px 1px white;
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 5px 20px;
+}
+/*Style all headings the same*/
+.headings {
+    padding: 5px;
+    margin: 40px 0;
+    background-image: linear-gradient(left, green, yellow, white);
+    background-image: -webkit-linear-gradient(left, green, yellow, white);
+    background-image: -moz-linear-gradient(left, green, yellow);
+    background-image: -o-linear-gradient(left, green, yellow);
+}
+
+/*style all pictures uniformly*/
+.main .pictures {
+    display: block;
+    margin: auto;
+    padding: 20px;
+    width: 50vw;
+    height: auto;
+}
+/*styling endorse div*/
+.endorse { 
+    margin: 0 auto;
+    clear: both;
+    padding: 40px 20px;
+    text-align: center;
+    background-color: grey;
+}
+
+/***************************************************************
+styling a different page.....GALLERY PAGE**************/
+.gallery {
+    max-width: 100%;
+    margin:20px;
+    background-color: lightgreen;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.photogallery {
+    line-height: 100px;
+    text-align: center;
+    margin-bottom: 20px;
+    padding-right: 10px;
+}
+.photogallery img {
+    width: 300px;
+    height: auto;
+}
+
+/***********************************************************************
+*****************************************************/
+/*styling about page*/
+.about-container {
+    background-color: #e6e6e6;
+    margin: 20px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+}
+
+.about-container > div,
+    .main .criteria > div, .main .schoolRules > div {
+    padding: 20px;
+    margin: 20px;
+    background-color: darkseagreen;
+    border: 1px solid lightskyblue;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px green;
+}
+/*add padding to principles list*/
+.main .schoolRules .principles ol {
+    padding-left: 20px;
+}
+
+.about-container > div h3 {
+    text-align: center;
+    font-weight: bold;
+}
+.mission h3 {
+    text-align: center;
+}
+
+.values {
+    margin: auto;
+    padding: 20px 100px;
+    line-height: 1.5;
+}
+.values h3 {
+    text-align: center;
+    
+}
+.values ul li {
+    font-weight: bold;
+}
+.back {
+    border: 1px solid black;
+    padding: 10px;
+    margin: 0 auto;
+    background-color: blue;
+    color: white;
+    text-decoration: none;
+}
+.staff_info {
+    display: block;
+    margin: auto;
+    text-align: center;
+}
+/******************************************************
+*************************************************************/
+/*styling the contact page*/
+.contact {
+    margin: 0 auto;
+    padding: 20px 100px;
+
+}
+
+fieldset {
+    max-width: 500px;
+    background-color: aquamarine;
+}
+
+/************************************************************************888
+*******************************/
+/*styling the admin page, general admissions Information*/
+.admin_column {
+    max-width: 100%;
+    padding: 20px 50px;
+    margin: 40px auto;
+    line-height: 1.65em;
+    background-color: darkolivegreen;
+    display: flex;
+    align-content: space-between;
+}
+.admin_column > div {
+    padding: 10px;
+    margin-right: 10px;
+}
+.principles {
+    background-color: darksalmon;
+}
+.collapsible {
+    background-color: darkgreen;
+    color: white;
+    cursor: pointer;
+    padding: 5px;
+    border: 1px solid black;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+    /*style the collapsible content(learnMore).Note: Hidden by default*/
+.learnmore {
+    padding: 0 15px;
+    display: none;
+    overflow: hidden;
+    background-color: inherit;
+}    
+.admission_criteria {
+    background-color: dodgerblue;
+}
+.inclusive_enviro {
+    background-color: lavender;
+}
+
+/**************************************************************
+Styling the student life page*/
+
+.accomodation h3 {
+    padding-bottom: 10px;
+}
+.accomodation p {
+    padding-top: 10px;
+    line-height: 1em;
+    margin-right: 50px;
+}
+.graduation {
+    padding: 10px;
+    margin: 10px;
+}
+
+.grad_profile h3 {
+    padding: 10px;
+    margin: 0 auto;
+}
+.graduation img {
+    padding-right: 10px;
+}
+ 
+
+/*applivation forms*/
+.main .apply .form {
+    display: block;
+    padding: 50px 100px;
+    display: block;
+    margin: 100px;
+    line-height: 1.5em;
+    background-color: burlywood;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 5px 5px grey;
+}
+.main .apply .next, .main .apply .back {
+    border: 1px solid black;
+    padding: 10px;
+    margin: 0 auto;
+    background-color: blue;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+.form *:focus {
+    background-color: aquamarine;
+}
+.main .apply .reset {
+    border: 1px solid black;
+    padding: 10px;
+    margin: 0 auto;
+    background-color: red;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/*styling the footer ID*/
+#footer {
+    /*position: fixed;*/
+    bottom: 0px;
+    width: 100%;
+    background: #111;
+    color: white;
+    height: fit-content;
+    margin-top: -250px;
+    clear: both;
+    font-size: .75em;
+}
+.main-footer {
+    display: flex;
+}
+.main-footer .box {
+    flex-basis: 50%;
+    padding: 10px 20px;
+}
+.box h3 {
+    font-size: 1.05rem;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+.box .footContent {
+    margin: 20px 0 0 0;
+}
+
+.left .footContent p {
+    text-align: justify;
+}
+
+.left .footContent .social, .center .footContent > div {
+    margin: 20px 0 0 0;
+}
+.left .footContent .social a {
+    padding: 0 2px;
+    margin: 0 2px;
+}
+.left .footContent .social a span, .center .footContent > div span   {
+    height: 30px;
+    width: 30px;
+    background: #f12020;
+    color: white;
+    line-height: 30px;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.left .footContent .social a span:hover:nth-child(1) {
+    background: #4867aa;
+}
+.left .footContent .social a span:nth-child(2):hover {
+    background: #1da1f2;
+}
+.center .footContent div a {
+    color: white;
+}
+.center .footContent div a:hover {
+    color: blue;
+}
+/*styles should look good on smaller screen sizes*/
+@media only screen and (max-width: 900px) {
+    .container {
+        padding: 0;
+    }
+    .main {
+        margin: 15px 0;
+    }
+    
+    label, .show-menu, .hide-menu {
+        display: block;
+        cursor: pointer;
+        width: 26px;
+        float: left;
+        color: white;
+    }
+    #toggle:checked ~ .menu {
+        display: block;
+    }
+    .hide-menu {
+        display: none;
+    }
+    #toggle:checked ~ .show-menu {
+        display: none;
+    }
+    #toggle:checked ~ .hide-menu {
+        display: block;
+    }
+    header ul {
+        flex-direction: column;
+    }
+    header li {
+        display: block;
+        width: 100px;
+        
+    }
+
+    .menu {
+        text-align: left;
+        width: 100%;
+        line-height: 15px;
+        display: none;
+        padding: 0 50px;
+    
+    }
+        
+    .menu a {
+        clear: both;
+        display: block;
+        margin: 0;
+        padding: 5px;
+        line-height: .5em;
+        width: 120px;
+    }
+        
+    #navigation {
+        background-color: black;
+        width: 500px;
+        
+    }
+    
+    .dropdown-content a {
+        line-height: 0.9em;
+        background-color: black;
+        
+    }
+      /*links inside ul*/
+      .dropdown-content {
+        left: 0px;
+        top: 0px;
+    }
+    /*rotate cta button and reduce size*/
+    .button-wrapper {
+        display: block;
+        transform: rotate(360deg);
+        right: 20px;
+        padding-top: 5px;
+        position: absolute;
+        top: 5px;
+    }
+    .button {
+        font-size: 0.6em;
+    }
+
+    /*.main {
+        padding: 10px 0 0 220px;
+    }*/
+    .jumbotron {
+        margin-top: 0px;
+        padding-top: 0px;
+        height: 100px;
+    }
+    .jumbotron h1, .jumbotron h3 {
+        font-size: 1em;
+        margin-left: 20px;
+        padding-left: 30px;
+    }
+    
+    .jumbotron .logo {
+        margin-top: 0px;
+        width: 120px;
+        height: 100px;
+    }
+
+    .innov .trade {
+        height: 20px;
+        font-size: 0.6em;
+        padding: 5px;
+    }
+
+    .slidercontainer {
+        text-align: center;
+        height: auto;
+    }
+    /*reduce the size of slider container in cellphones*/
+    .showSlide img {
+        width: 80vw;
+        height: 50vh;
+        /*height: 250px;*/
+    }
+
+    /*content -layout----index page styling*/
+
+    .content-layout {
+        /*flex-direction: column;*/
+        padding: 10px 20px;
+        margin: 10px 50px;
+    }
+    .content-layout .column:last-child p {
+        font-size: smaller;
+        line-height: 0.8em;
+    }
+   
+    /*about page, courses page*/
+    .main .about-container > div,
+      .main .criteria > div {
+        margin: 50px;
+        padding: 10px 20px;
+        background: rgba(213, 456, 255, 1);
+    }
+    .main .history, .main .mission, .main .schoolRules div,
+     .main .values, .main .library-content {
+        margin: 20px 50px 80px;
+        padding: 50px;
+        background-color: rgba(213, 456, 255, 1);
+    }
+
+    .about-container {
+        flex-direction: column;
+    }
+    .main .values {
+        margin-bottom: 40px;
+    }
+    /*.main .staffImg {
+        width: 100vw;
+    }
+    /* contact page */
+    .contact {
+        margin: 0 150px;
+        padding: 10px 20px;    
+    }
+    .contact .form fieldset {
+        width: 200px;
+        padding: 10px;
+        font-size: smaller;
+        line-height: 0.6em;
+    }
+    .contact .article .address p, address h3 {
+        line-height: 1em;
+        font-size: 0.9em;
+
+    }
+    /* courses page */
+    .main .criteria, .main .courses {
+        padding: 10px 30px;
+        font-size: smaller;
+    }
+    .main .criteria h2 {
+        padding-bottom: 5px;
+    }
+     /* admission rules page */
+     .main .admin_content {
+        padding: 10px 20px;
+    }
+    .admin_content .pictures, .main .staffImg,
+     .main .content-layout .pictures {
+        min-width: 300px;
+    }
+    .main .admin_column {
+        flex-direction: column;
+        
+    }
+    .main .admin_column > div {
+        margin-bottom: 10px;
+    }
+    .main .admin_column1 {
+        margin: 20px;
+        padding: 10px 20px;
+    }
+    .main .admin_column1 .principles1 > p {
+        line-height: 1.5em;
+    }
+    .main .inclusive_environment, .main .schoolRules, 
+    .main .internationalStudents, .main .life {
+        padding: 10px 50px;
+        margin: 20px auto;
+        line-height: 1.1em;
+        font-size: .9em;
+    }
+    .support {
+        flex-direction: column;
+    }
+    .support div {
+        margin-bottom: 10px;
+    }
+    
+    /*all headings should be smaller*/
+    .headings {
+        font-size: smaller;
+    }
+    .endorse .sponsors img {
+        width: 50px;
+        height: 50px;
+    }
+    /*styles for application forms*/
+    .main .apply .form {
+        margin: 50px;
+        padding: 30px;
+    }
+    /*footer*/
+    #footer .main-footer {
+        flex-direction: column;
+    }
+}
+       
+/*Media queries for smaller screens, to make the website more responsive*/
+@media only screen and (max-width: 750px) {
+    .main {
+        font-size: 0.8em;
+        padding: -10px;
+    }
+    .main .headings {
+        font-size: 1em;
+    }
+    .content-layout {
+        margin: 5px;
+    }
+    .main .content-layout div {
+        margin: 20px 0;
+    }
+    /*Styles for the call to action buttons*/
+    .main .button {
+    padding: 0.1em 0.8em;
+    font-size: 0.6em;
+    }
+    /*application forms in cellphones*/
+    .main .apply .form {
+        /*display: block;*/
+        margin: 20px 10px 50px;
+        padding: 10px;
+        line-height: 1.2em;
+        font-size: 0.8em;
+    }   
+    .main .apply ol {
+        padding-left: 30px;
+    }
+    .jumbotron h1 {
+        font-size: 1.2em;
+        padding: 10px 50px;
+    }
+    
+    /*reduce the size of slider container in cellphones*/
+    .showSlide img {
+        width: 70vw;
+        height: 40vh;
+    }
+    .programme {
+        width: 100%;
+        padding-left: 0px;
+        margin-left: 5px;
+    }
+    .programme p {
+        padding: 2px 2px 2px 10px;
+    }
+    .main .pictures {
+        width: 90vw;
+        height: auto;
+    }
+    .main .internationalStudents img,
+    .main .life .accomodation img {
+        width: 300px;
+        height: auto;
+    }
+    
+    /*about page, courses, rules pages*/
+    .main .about-container, .main .criteria,
+    .main .admin_column, .main .schoolRules, .main .life {
+        padding: 10px;
+        margin: 10px;
+    }
+
+    .main .about-container > div,
+     .main .criteria > div, .main .schoolRules div {
+        padding: 10px;
+        margin: 30px 0;
+    }
+    .main .history, .main .mission, .main .values,
+    .main .library-content {
+        margin: 50px 20px;
+        padding: 20px 10px;
+        
+    }
+    
+    /*staff images*/
+    .main .staff {
+        margin-top: 0px;
+        padding: 0 20px;
+    }
+    .main .staff img, .library-content img, .programmes img {
+        width: 300px;
+        height: auto;
+    }
+   
+    .gallery .photogallery img {
+        width: 80%;
+        height: auto;
+    }
+    /*contact us page*/
+    .main .contact {
+        margin: 0 10px;
+    }
+    .main .contact .form {
+        margin-left: -5px;
+        padding: 10px;
+        width: 90%;
+        background-color: inherit;
+    }
+    .main .findUs h3 {
+        font-size: 1em;
+    }
+    .main .findUs #googleMap {
+        width: 100vw;
+        margin: 0 0 10px -10px;
+        padding: 20px 0;
+    }
+
+    .main .criteria .programmes ul,
+    .main .criteria ol, .main .schoolRules .rules ul,
+    .main .schoolRules .principles ol, .main .values ul {
+        margin: 0 auto;
+        padding: 10px 10px 10px 20px;
+    }
+    /*reduce size of images in courses page*/
+    .main .criteria img {
+        width: 300px;
+        height: 200px;
+    }
+
+    .main .endorse h3 {
+        font-size: 0.8em;
+    }
+    #footer {
+        font-size: 0.7em;
+    }
+    
+}
+@media only screen and (max-width: 500px) {
+    .gallery .photogallery img {
+        width: 80vw;
+        height: auto;
+        margin-left: -18px;
+    }
+    .main .staff .staffImg {
+        width: 80%;
+        height: auto;
+    }
+    .main .criteria img {
+        width: 80vw;
+        height: auto;
+    }
+}
